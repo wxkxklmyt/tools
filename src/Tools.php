@@ -21,4 +21,20 @@ class Tools{
             exit();
         }
     }
+
+    /**
+     * 浏览器console控制台输出
+     * @param string $str 内容
+     */
+    public static function console_log($str = ''){
+        if(empty($str)){
+            exit('浏览器console输出不能为空');
+        }
+        
+        if(is_array($str) || is_object($str)){
+            $str = json_encode($str, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+        }
+        
+        echo "<script>console.log('$str');</script>";
+    }
 }
