@@ -6,6 +6,8 @@
  */
 namespace wxkxklmyt;
 
+use wxkxklmyt\lib\IdCard;
+
 class Tools{
 
     /**
@@ -69,6 +71,7 @@ class Tools{
 
     /**
      * 判断微信浏览器
+     *
      * @return boolean
      */
     public static function is_weixin_browser(){
@@ -76,5 +79,24 @@ class Tools{
             return true;
         }
         return false;
+    }
+
+    /**
+     * 校验身份证号码格式
+     *
+     * @param string $card 18位身份证号码
+     * @return boolean
+     */
+    public static function check_id_card($card = ''){
+        return IdCard :: isCard($card);
+    }
+
+    /**
+     * 身份证号码15位升18位
+     * 
+     * @param string $card 15位身份证号码
+     */
+    public static function id_card_15to18($card = ''){
+        return IdCard :: to18Card($card);
     }
 }
