@@ -28,7 +28,7 @@ class Tools{
 
     /**
      * 浏览器console控制台输出
-     * 
+     *
      * @param string $str 内容
      */
     public static function console_log($str = ''){
@@ -65,5 +65,16 @@ class Tools{
         $order_id = $order_id_main . str_pad((100 - $order_id_sum % 100) % 100, 2, '0', STR_PAD_LEFT);
         
         return $order_id;
+    }
+
+    /**
+     * 判断微信浏览器
+     * @return boolean
+     */
+    public static function is_weixin_browser(){
+        if(strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false){
+            return true;
+        }
+        return false;
     }
 }
