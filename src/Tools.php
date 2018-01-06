@@ -93,10 +93,33 @@ class Tools{
 
     /**
      * 身份证号码15位升18位
-     * 
+     *
      * @param string $card 15位身份证号码
      */
     public static function id_card_15to18($card = ''){
         return IdCard :: to18Card($card);
+    }
+
+    /**
+     * 下划线命名转驼峰命名
+     *
+     * @param string $uncamelized_words
+     * @param string $separator
+     * @return string
+     */
+    public static function camelize($uncamelized_words = '', $separator = '_'){
+        $uncamelized_words = $separator . str_replace($separator, " ", strtolower($uncamelized_words));
+        return ltrim(str_replace(" ", "", ucwords($uncamelized_words)), $separator);
+    }
+
+    /**
+     * 驼峰命名转下划线命名
+     *
+     * @param string $camelCaps
+     * @param string $separator
+     * @return string
+     */
+    public static function uncamelize($camelCaps = '', $separator = '_'){
+        return strtolower(preg_replace('/([a-z])([A-Z])/', "$1" . $separator . "$2", $camelCaps));
     }
 }
