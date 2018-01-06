@@ -6,6 +6,8 @@
 	<li>is_weixin_browser()【判断微信浏览器】</li>
 	<li>check_id_card($card = '')【校验身份证号码格式：$card = '18位身份证号码'】</li>
 	<li>id_card_15to18($card = '')【身份证号码15位升18位：$card = '15位身份证号码'】</li>
+	<li>camelize($uncamelized_words = '', $separator = '_')【下划线命名转驼峰命名】</li>
+	<li>uncamelize($camelCaps = '', $separator = '_')【驼峰命名转下划线命名】</li>
 </ul>
 <h3>composer安装</h3>
 <pre>
